@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de Chave de Acesso de Nota Fiscal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gerador de Chave de Acesso de Nota Fiscal</h1>
+      <p>
+        Este site segue as regras de nota fiscal conforme
+        <a
+          href="https://webmaniabr.com/blog/entenda-como-funciona-a-chave-de-acesso-da-nf-e/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >este artigo</a
+        >
+        do blog WebMania.
+      </p>
+
+      <div>
+        <label for="federalUnit">Unidade Federal:</label>
+        <select id="federalUnit"></select>
+      </div>
+
+      <div>
+        <label for="monthYear">Mês e Ano da Nota (AAMM):</label>
+        <input type="month" id="monthYear" />
+      </div>
+
+      <div>
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" readonly />
+      </div>
+
+      <div>
+        <label for="model">Modelo de Nota Fiscal:</label>
+        <select id="model"></select>
+      </div>
+
+      <div>
+        <label for="serie">Série:</label>
+        <input type="text" id="serie" />
+      </div>
+
+      <div>
+        <label for="number">Número da Nota:</label>
+        <input type="text" id="number" />
+      </div>
+
+      <div>
+        <label for="emissionType">Tipo de Emissão:</label>
+        <select id="emissionType"></select>
+      </div>
+
+      <div>
+        <label for="code">Código Numérico:</label>
+        <input type="text" id="code" />
+      </div>
+
+      <div>
+        <label for="digit">Dígito Verificador:</label>
+        <input type="text" id="digit" disabled />
+      </div>
+
+      <div>
+        <button onclick="generateAccessKey()" id="generateAccessKeyButton">
+          Gerar Chave
+        </button>
+      </div>
+
+      <div>
+        <label for="accessKey">Chave de Acesso:</label>
+        <input type="text" id="accessKey" disabled />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
