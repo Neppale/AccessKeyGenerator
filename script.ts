@@ -169,6 +169,22 @@ generateAccessKeyButton.addEventListener("click", function () {
   accessKeyInput.value = accessKey;
 });
 
+// Campos de série, número e código numérico aceitam apenas números
+const serieInput = document.getElementById("serie") as HTMLInputElement;
+serieInput.addEventListener("input", function () {
+  this.value = this.value.replace(/\D/g, "");
+});
+
+const numberInput = document.getElementById("number") as HTMLInputElement;
+numberInput.addEventListener("input", function () {
+  this.value = this.value.replace(/\D/g, "");
+});
+
+const codeInput = document.getElementById("code") as HTMLInputElement;
+codeInput.addEventListener("input", function () {
+  this.value = this.value.replace(/\D/g, "");
+});
+
 function generateRandomNumber(digits: number): number {
   const min = Math.pow(10, digits - 1);
   const max = Math.pow(10, digits) - 1;

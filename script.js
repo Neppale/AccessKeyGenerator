@@ -145,6 +145,19 @@ generateAccessKeyButton.addEventListener("click", function () {
     digitInput.value = accessKey.slice(-1);
     accessKeyInput.value = accessKey;
 });
+// Campos de série, número e código numérico aceitam apenas números
+var serieInput = document.getElementById("serie");
+serieInput.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "");
+});
+var numberInput = document.getElementById("number");
+numberInput.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "");
+});
+var codeInput = document.getElementById("code");
+codeInput.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "");
+});
 function generateRandomNumber(digits) {
     var min = Math.pow(10, digits - 1);
     var max = Math.pow(10, digits) - 1;
