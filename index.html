@@ -32,7 +32,7 @@
 
       <div>
         <label for="cnpj">CNPJ:</label>
-        <input type="text" id="cnpj" readonly />
+        <input type="text" id="cnpj" value="12.345.678/0001-90"
       </div>
 
       <div>
@@ -42,12 +42,12 @@
 
       <div>
         <label for="serie">Série:</label>
-        <input type="text" id="serie" />
+        <input type="text" id="serie" maxlength="3" minlength="3" />
       </div>
 
       <div>
         <label for="number">Número da Nota:</label>
-        <input type="text" id="number" />
+        <input type="text" id="number" maxlength="9" minlength="9" />
       </div>
 
       <div>
@@ -57,7 +57,7 @@
 
       <div>
         <label for="code">Código Numérico:</label>
-        <input type="text" id="code" />
+        <input type="text" id="code" maxlength="8" minlength="8" />
       </div>
 
       <div>
@@ -66,9 +66,7 @@
       </div>
 
       <div>
-        <button onclick="generateAccessKey()" id="generateAccessKeyButton">
-          Gerar Chave
-        </button>
+        <button id="generateAccessKeyButton" type="button">Gerar Chave</button>
       </div>
 
       <div>

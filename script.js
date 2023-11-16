@@ -75,9 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var formattedYear = year.toString();
     var formattedMonthYear = "".concat(formattedYear, "-").concat(formattedMonth);
     monthYearInput.value = formattedMonthYear;
-    // Preencher o campo CNPJ (cnpj)
-    var cnpjInput = document.getElementById("cnpj");
-    cnpjInput.value = generateRandomCNPJ();
     // Preencher o seletor de modelo de documento fiscal (model)
     var modelSelector = document.getElementById("model");
     var modelList = ["NF-e", "NFC-e"];
@@ -97,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     serieInput.value = generateRandomNumber(3).toString();
     // Preencher o campo de número (number)
     var numberInput = document.getElementById("number");
-    numberInput.value = generateRandomNumber(8).toString();
+    numberInput.value = generateRandomNumber(9).toString();
     // Preencher o campo Tipo de Emissão (emissionType)
     var emissionTypeSelector = document.getElementById("emissionType");
     var emissionTypeList = [
@@ -138,15 +135,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Preencher o campo Chave de Acesso (accessKey)
     var accessKeyInput = document.getElementById("accessKey");
     accessKeyInput.value = generateAccessKey();
-    // Atualizar a chave de acesso quando clicar no botão "Gerar Chave"
-    var generateAccessKeyButton = document.getElementById("generateAccessKeyButton");
-    generateAccessKeyButton.addEventListener("click", function () {
-        accessKeyInput.value = generateAccessKey();
-    });
 });
-function generateRandomCNPJ() {
-    return "12.345.678/0001-90";
-}
+// Atualizar a chave de acesso quando clicar no botão "Gerar Chave"
+var generateAccessKeyButton = document.getElementById("generateAccessKeyButton");
+generateAccessKeyButton.addEventListener("click", function () {
+    var accessKeyInput = document.getElementById("accessKey");
+    var digitInput = document.getElementById("digit");
+    var accessKey = generateAccessKey();
+    digitInput.value = accessKey.slice(-1);
+    accessKeyInput.value = accessKey;
+});
 function generateRandomNumber(digits) {
     var min = Math.pow(10, digits - 1);
     var max = Math.pow(10, digits) - 1;

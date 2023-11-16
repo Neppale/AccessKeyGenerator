@@ -81,10 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const formattedMonthYear = `${formattedYear}-${formattedMonth}`;
   monthYearInput.value = formattedMonthYear;
 
-  // Preencher o campo CNPJ (cnpj)
-  const cnpjInput = document.getElementById("cnpj") as HTMLInputElement;
-  cnpjInput.value = generateRandomCNPJ();
-
   // Preencher o seletor de modelo de documento fiscal (model)
   const modelSelector = document.getElementById("model") as HTMLSelectElement;
   const modelList = ["NF-e", "NFC-e"];
@@ -107,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Preencher o campo de número (number)
   const numberInput = document.getElementById("number") as HTMLInputElement;
-  numberInput.value = generateRandomNumber(8).toString();
+  numberInput.value = generateRandomNumber(9).toString();
 
   // Preencher o campo Tipo de Emissão (emissionType)
   const emissionTypeSelector = document.getElementById(
@@ -157,19 +153,21 @@ document.addEventListener("DOMContentLoaded", function () {
     "accessKey"
   ) as HTMLInputElement;
   accessKeyInput.value = generateAccessKey();
-
-  // Atualizar a chave de acesso quando clicar no botão "Gerar Chave"
-  const generateAccessKeyButton = document.getElementById(
-    "generateAccessKeyButton"
-  ) as HTMLButtonElement;
-  generateAccessKeyButton.addEventListener("click", function () {
-    accessKeyInput.value = generateAccessKey();
-  });
 });
 
-function generateRandomCNPJ() {
-  return "12.345.678/0001-90";
-}
+// Atualizar a chave de acesso quando clicar no botão "Gerar Chave"
+const generateAccessKeyButton = document.getElementById(
+  "generateAccessKeyButton"
+) as HTMLButtonElement;
+generateAccessKeyButton.addEventListener("click", function () {
+  const accessKeyInput = document.getElementById(
+    "accessKey"
+  ) as HTMLInputElement;
+  const digitInput = document.getElementById("digit") as HTMLInputElement;
+  const accessKey = generateAccessKey();
+  digitInput.value = accessKey.slice(-1);
+  accessKeyInput.value = accessKey;
+});
 
 function generateRandomNumber(digits: number): number {
   const min = Math.pow(10, digits - 1);
