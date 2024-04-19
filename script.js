@@ -144,6 +144,10 @@ generateAccessKeyButton.addEventListener("click", function () {
     var accessKey = generateAccessKey();
     digitInput.value = accessKey.slice(-1);
     accessKeyInput.value = accessKey;
+    var qrCodeImage = document.getElementById("qrCode");
+    qrCodeImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=".concat(accessKey);
+    qrCodeImage.alt = accessKey;
+    qrCodeImage.style.display = "block";
 });
 // Campos de série, número e código numérico aceitam apenas números
 var serieInput = document.getElementById("serie");

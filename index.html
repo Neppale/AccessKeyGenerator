@@ -66,12 +66,18 @@
       </div>
 
       <div>
-        <button id="generateAccessKeyButton" type="button">Gerar Chave</button>
+        <label for="accessKey">Chave de Acesso:</label>
+        <input type="text" id="accessKey" disabled />
       </div>
 
       <div>
-        <label for="accessKey">Chave de Acesso:</label>
-        <input type="text" id="accessKey" disabled />
+        <button id="generateAccessKeyButton" type="button">
+          Regenerar Chave
+        </button>
+      </div>
+
+      <div>
+        <img id="qrCode" alt="QR Code" hidden />
       </div>
     </div>
 
