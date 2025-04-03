@@ -2,8 +2,9 @@
   "name": "access-key-generator",
   "version": "1.0.0",
   "description": "Gerador de Chave de Acesso de NF-e",
+  "homepage": "https://accesskey.verissimo.dev",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp CNAME dist/ && cp index.html dist/ && cp style.css dist/",
     "watch": "tsc -w"
   },
   "devDependencies": {
