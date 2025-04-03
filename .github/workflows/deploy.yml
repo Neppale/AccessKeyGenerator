@@ -31,15 +31,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Configure MIME Types
+      - name: Debug dist directory
         run: |
-          echo '{
-            "*.js": "text/javascript",
-            "*.mjs": "text/javascript",
-            "*.json": "application/json",
-            "*.html": "text/html",
-            "*.css": "text/css"
-          }' > dist/.mime.types.json
+          echo "Contents of dist directory:"
+          ls -la dist/
+          echo "Contents of dist/src directory:"
+          ls -la dist/src/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
