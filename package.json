@@ -4,7 +4,7 @@
   "description": "Gerador de Chave de Acesso de NF-e",
   "homepage": "https://accesskey.verissimo.dev",
   "scripts": {
-    "build": "tsc && cp CNAME dist/ && cp index.html dist/ && cp style.css dist/ && mv dist/script.js dist/ && ls -la dist/",
+    "build": "tsc && cp CNAME dist/ && cp index.html dist/ && cp style.css dist/ && ls -la dist/",
     "watch": "tsc -w"
   },
   "devDependencies": {
