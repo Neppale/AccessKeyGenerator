@@ -31,11 +31,21 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Configure MIME Types
+        run: |
+          echo '{
+            "*.js": "text/javascript",
+            "*.mjs": "text/javascript",
+            "*.json": "application/json",
+            "*.html": "text/html",
+            "*.css": "text/css"
+          }' > dist/.mime.types.json
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: dist
           publish_branch: gh-pages
           destination_dir: .
           commit_message: "Deploy: ${{ github.event.head_commit.message }}"
