@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de Chave de Acesso</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gerador de Chave de Acesso de NF-e</h1>
+      <p>
+        Este site segue as regras de nota fiscal conforme
+        <a
+          href="https://webmaniabr.com/blog/entenda-como-funciona-a-chave-de-acesso-da-nf-e/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >este artigo</a
+        >
+        do blog WebMania.
+      </p>
+
+      <form id="accessKeyForm">
+        <div class="form-group">
+          <label for="federalUnit">Unidade Federal:</label>
+          <select id="federalUnit" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="monthYear">Data de Emissão:</label>
+          <input type="month" id="monthYear" required />
+        </div>
+
+        <div class="form-group">
+          <label for="cnpj">CNPJ:</label>
+          <input type="text" id="cnpj" required />
+        </div>
+
+        <div class="form-group">
+          <label for="model">Modelo:</label>
+          <select id="model" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="serie">Série:</label>
+          <input type="text" id="serie" required />
+        </div>
+
+        <div class="form-group">
+          <label for="number">Número:</label>
+          <input type="text" id="number" required />
+        </div>
+
+        <div class="form-group">
+          <label for="emissionType">Tipo de Emissão:</label>
+          <select id="emissionType" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="code">Código Numérico:</label>
+          <input type="text" id="code" required />
+        </div>
+
+        <div class="form-group">
+          <label for="digit">Dígito Verificador:</label>
+          <input type="text" id="digit" readonly />
+        </div>
+
+        <div class="form-group">
+          <label for="accessKey">Chave de Acesso:</label>
+          <input type="text" id="accessKey" readonly />
+        </div>
+
+        <button type="button" id="generateAccessKeyButton">Gerar Chave</button>
+      </form>
+
+      <div id="qrCodeContainer">
+        <img id="qrCode" alt="" style="display: none" />
+      </div>
+    </div>
+    <script type="module" src="./dist/script.js"></script>
+  </body>
+</html>
