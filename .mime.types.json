@@ -1,7 +1,0 @@
-{
-  "*.js": "text/javascript",
-  "*.mjs": "text/javascript",
-  "*.json": "application/json",
-  "*.html": "text/html",
-  "*.css": "text/css"
-}
