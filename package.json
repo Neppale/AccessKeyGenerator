@@ -1,0 +1,12 @@
+{
+  "name": "access-key-generator",
+  "version": "1.0.0",
+  "description": "Gerador de Chave de Acesso de NF-e",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

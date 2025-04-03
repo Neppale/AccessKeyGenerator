@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gerador de Chave de Acesso de Nota Fiscal</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Gerador de Chave de Acesso</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Gerador de Chave de Acesso de Nota Fiscal</h1>
+      <h1>Gerador de Chave de Acesso de NF-e</h1>
       <p>
         Este site segue as regras de nota fiscal conforme
         <a
@@ -20,67 +20,64 @@
         do blog WebMania.
       </p>
 
-      <div>
-        <label for="federalUnit">Unidade Federal:</label>
-        <select id="federalUnit"></select>
-      </div>
+      <form id="accessKeyForm">
+        <div class="form-group">
+          <label for="federalUnit">Unidade Federal:</label>
+          <select id="federalUnit" required></select>
+        </div>
 
-      <div>
-        <label for="monthYear">Mês e Ano da Nota (AAMM):</label>
-        <input type="month" id="monthYear" />
-      </div>
+        <div class="form-group">
+          <label for="monthYear">Data de Emissão:</label>
+          <input type="month" id="monthYear" required />
+        </div>
 
-      <div>
-        <label for="cnpj">CNPJ:</label>
-        <input type="text" id="cnpj" value="12.345.678/0001-90"
-      </div>
+        <div class="form-group">
+          <label for="cnpj">CNPJ:</label>
+          <input type="text" id="cnpj" required />
+        </div>
 
-      <div>
-        <label for="model">Modelo de Nota Fiscal:</label>
-        <select id="model"></select>
-      </div>
+        <div class="form-group">
+          <label for="model">Modelo:</label>
+          <select id="model" required></select>
+        </div>
 
-      <div>
-        <label for="serie">Série:</label>
-        <input type="text" id="serie" maxlength="3" minlength="3" />
-      </div>
+        <div class="form-group">
+          <label for="serie">Série:</label>
+          <input type="text" id="serie" required />
+        </div>
 
-      <div>
-        <label for="number">Número da Nota:</label>
-        <input type="text" id="number" maxlength="9" minlength="9" />
-      </div>
+        <div class="form-group">
+          <label for="number">Número:</label>
+          <input type="text" id="number" required />
+        </div>
 
-      <div>
-        <label for="emissionType">Tipo de Emissão:</label>
-        <select id="emissionType"></select>
-      </div>
+        <div class="form-group">
+          <label for="emissionType">Tipo de Emissão:</label>
+          <select id="emissionType" required></select>
+        </div>
 
-      <div>
-        <label for="code">Código Numérico:</label>
-        <input type="text" id="code" maxlength="8" minlength="8" />
-      </div>
+        <div class="form-group">
+          <label for="code">Código Numérico:</label>
+          <input type="text" id="code" required />
+        </div>
 
-      <div>
-        <label for="digit">Dígito Verificador:</label>
-        <input type="text" id="digit" disabled />
-      </div>
+        <div class="form-group">
+          <label for="digit">Dígito Verificador:</label>
+          <input type="text" id="digit" readonly />
+        </div>
 
-      <div>
-        <label for="accessKey">Chave de Acesso:</label>
-        <input type="text" id="accessKey" disabled />
-      </div>
+        <div class="form-group">
+          <label for="accessKey">Chave de Acesso:</label>
+          <input type="text" id="accessKey" readonly />
+        </div>
 
-      <div>
-        <button id="generateAccessKeyButton" type="button">
-          Regenerar Chave
-        </button>
-      </div>
+        <button type="button" id="generateAccessKeyButton">Gerar Chave</button>
+      </form>
 
-      <div>
-        <img id="qrCode" alt="QR Code" hidden />
+      <div id="qrCodeContainer">
+        <img id="qrCode" alt="" style="display: none" />
       </div>
     </div>
-
-    <script src="script.js"></script>
+    <script type="module" src="./dist/script.js"></script>
   </body>
 </html>
